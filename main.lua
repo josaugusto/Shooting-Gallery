@@ -1,5 +1,6 @@
 function love.load()
     target = {}
+    
     target.x = 300
     target.y = 300
     target.radius = 50
@@ -57,8 +58,8 @@ function love.mousepressed(x, y, button, istouch, presses)
                 score = score + 2
                 timer = timer - 1
             end
-            target.x = love.math.random(target.radius, love.graphics.getWidth() - target.radius)
-            target.y = love.math.random(target.radius, love.graphics.getHeight() - target.radius)
+            target.x = math.random(target.radius, love.graphics.getWidth() - target.radius)
+            target.y = math.random(target.radius, love.graphics.getHeight() - target.radius)
         elseif score > 0 then
             score = score - 1
         end
