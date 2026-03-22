@@ -33,7 +33,6 @@ end
 function love.draw()
     love.graphics.draw(sprites.sky, 0, 0)
 
-    love.graphics.setColor(1, 1, 1)
     love.graphics.setFont(gameFont)
     love.graphics.print("Score: " .. score, 5, 5)
     love.graphics.print("Time: " .. math.ceil(timer), 300, 5)
@@ -58,8 +57,8 @@ function love.mousepressed(x, y, button, istouch, presses)
                 score = score + 2
                 timer = timer - 1
             end
-            target.x = math.random(target.radius, love.graphics.getWidth() - target.radius)
-            target.y = math.random(target.radius, love.graphics.getHeight() - target.radius)
+            target.x = love.math.random(target.radius, love.graphics.getWidth() - target.radius)
+            target.y = love.math.random(target.radius, love.graphics.getHeight() - target.radius)
         elseif score > 0 then
             score = score - 1
         end
@@ -70,6 +69,7 @@ function love.mousepressed(x, y, button, istouch, presses)
     end
 end
 
+-- Calculates the distance between two points.
 function distanceBetween(x1, y1, x2, y2)
     return math.sqrt( (x2 - x1)^2 + (y2 - y1)^2 )
 end
